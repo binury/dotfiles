@@ -24,7 +24,7 @@ antigen apply
 
 
 # Terminal Color Theme
-BASE16_SHELL="~/dotfiles/base16-ocean.dark.sh"
+BASE16_SHELL="$HOME/dotfiles/base16-ocean.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # Distinguish myself as a nekkbeard
