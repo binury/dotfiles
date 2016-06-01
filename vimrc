@@ -121,3 +121,7 @@ endif
 
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
+
+" PYMODE
+" Automatically closes Scratch if we move the cursor
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
