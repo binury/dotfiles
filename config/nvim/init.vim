@@ -5,25 +5,36 @@ if &compatible
 endif
 
 filetype plugin indent on
-syntax on
+syntax enable
+
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+set encoding=utf8
 
 " PLUGINS
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'junegunn/vim-easy-align'
-
-" On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'https://github.com/fatih/vim-go.git'
+Plug 'mhartington/oceanic-next'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Need Load Last 
+Plug 'https://github.com/ryanoasis/vim-devicons'
+
 
 " Initialize plugin system
 call plug#end()
 
 " END PLUGINS
 
-" Use the Ocean Dark theme
-set background=dark
-let base16colorspace=256
-"colorscheme base16-ocean
+" Use the Ocean Dark theme/plugin
+colorscheme OceanicNext
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
