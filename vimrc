@@ -17,7 +17,7 @@ syntax on
 " Use the Solarized Dark theme
 set background=dark
 let base16colorspace=256
-colorscheme base16-ocean
+"colorscheme base16-ocean
 "let g:solarized_termtrans=1
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)

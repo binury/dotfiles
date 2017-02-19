@@ -30,3 +30,10 @@ BASE16_SHELL="$HOME/dotfiles/base16-ocean.dark.sh"
 # Distinguish myself as a nekkbeard
 export VISUAL=vim
 export EDITOR=vim
+
+
+# For OSX
+export TREASURE=/Volumes/treasure
+alias vim=nvim
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
