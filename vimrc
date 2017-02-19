@@ -19,7 +19,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'https://github.com/fatih/vim-go.git'
-Plug 'mhartington/oceanic-next'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -33,8 +32,8 @@ call plug#end()
 
 " END PLUGINS
 
-" Use the Ocean Dark theme/plugin
-colorscheme OceanicNext
+" Use the Ocean Dark theme!
+colorscheme oceandark
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed

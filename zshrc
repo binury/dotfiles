@@ -27,7 +27,6 @@ antigen apply
 BASE16_SHELL="$HOME/dotfiles/base16-ocean.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-# Distinguish myself as a nekkbeard
 export VISUAL=vim
 export EDITOR=vim
 
