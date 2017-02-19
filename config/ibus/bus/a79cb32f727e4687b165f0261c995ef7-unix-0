@@ -1,3 +1,0 @@
-# This file is created by ibus-daemon, please do not modify it
-IBUS_ADDRESS=unix:abstract=/tmp/dbus-tmlLcprM,guid=c7e94155a3f641b775b77bde570c672e
-IBUS_DAEMON_PID=1777
