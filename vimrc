@@ -7,7 +7,7 @@ endif
 filetype plugin indent on
 syntax enable
 
-if (has("termguicolors"))
+if has("termguicolors")
  set termguicolors
 endif
 
@@ -20,8 +20,14 @@ Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'https://github.com/fatih/vim-go.git'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Status bar
+Plug 'itchyny/lightline.vim'
+
+" Utilize External Formatting Guidelines
+Plug 'Chiel92/vim-autoformat'
+
+" Web Development
+Plug 'mattn/emmet-vim/'
 
 " Need Load Last 
 Plug 'https://github.com/ryanoasis/vim-devicons'
@@ -30,17 +36,26 @@ Plug 'https://github.com/ryanoasis/vim-devicons'
 " Initialize plugin system
 call plug#end()
 
-" END PLUGINS
+" PLUGIN SETTINGS
 
 " Use the Ocean Dark theme!
 colorscheme oceandark
 
+" LightLine Theme
+let g:lightline = {
+      \ 'colorscheme': 'seoul256',
+      \ }
+
+" NerdTree
+" \f toggle
+nnoremap <Leader>f :NERDTreeToggle<Enter>
+
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard=unnamed
+" set clipboard=unnamed
 " Enhance command-line completion
-" set wildmenu
+set wildmenu
 " Allow cursor keys in insert mode
-" set esckeys
+set esckeys 
 " Allow backspace in insert mode
 "  set backspace=indent,eol,start
 " Optimize for fast terminal connections
@@ -135,7 +150,10 @@ if has("autocmd")
 endif
 
 " Automatic reloading of .vimrc
-autocmd! bufwritepost .vimrc source %
+augroup reload_vimrc
+	autocmd! 
+	autocmd bufwritepost .vimrc nested source %
+augroup END
 
 " PYMODE
 " Automatically closes Scratch if we move the cursor

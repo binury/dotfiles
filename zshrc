@@ -36,3 +36,11 @@ export TREASURE=/Volumes/treasure
 alias vim=nvim
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# FASD
+eval "$(fasd --init auto)"
+
+# PyEnv
+export PATH="${HOME}/.pyenv/bin:/usr/local/sbin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
