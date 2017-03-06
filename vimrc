@@ -16,10 +16,10 @@ set encoding=utf8
 " PLUGINS
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'mhinz/vim-startify'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" Status bar
 Plug 'itchyny/lightline.vim'
 
 " Utilize External Formatting Guidelines
@@ -44,7 +44,11 @@ colorscheme oceandark
 let g:lightline = {
       \ 'colorscheme': 'seoul256',
       \ }
+" Close NerdTree when opening file
+let NERDTreeQuitOnOpen = 1
 
+" Quit when NerdTree is last open buffer *Broken in neovim?*
+" autocmd bufenter * if (winnr(“$”) == 1 && exists(“b:NERDTreeType”) && b:NERDTreeType == “primary”) | q | endif
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 " set clipboard=unnamed
@@ -154,5 +158,8 @@ augroup reload_vimrc
 augroup END
 
 " PYMODE
-" Automatically closes Scratch if we move the cursor
+" Automatically closes Scratch if we move the cursor ! Unknown Status !
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+
+"NerdTreeAutoOpen **BROKEN**
+autocmd VimEnter * if !argc() | Startify | NERDTreeToggle | endif
