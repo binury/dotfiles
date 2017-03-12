@@ -1,3 +1,5 @@
+bindkey -v
+export KEYTIMEOUT=1
 source $HOME/dotfiles/antigen.zsh
 
 # Load the oh-my-zsh's library.
@@ -10,7 +12,8 @@ antigen bundle pip
 antigen bundle lein
 antigen bundle command-not-found
 antigen bundle web-search
-antigen bundle archlinux
+antigen bundle vi-mode
+#antigen bundle archlinux
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting

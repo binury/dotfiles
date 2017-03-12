@@ -1,5 +1,4 @@
-"let g:python_host_prog='/usr/local/bin/python'
-
+" Basics {{{
 if &compatible
   set nocompatible               " Be iMproved
 endif
@@ -12,8 +11,8 @@ if has("termguicolors")
 endif
 
 set encoding=utf8
-
-" PLUGINS
+" }}}
+" Plugins {{{
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'mhinz/vim-startify'
@@ -24,9 +23,18 @@ Plug 'itchyny/lightline.vim'
 
 " Utilize External Formatting Guidelines
 Plug 'Chiel92/vim-autoformat'
+Plug 'skammer/vim-css-color'
+Plug 'scrooloose/syntastic'
+" YouCompleteME is a fucking monster of Plugins and has about a dozen other plugins as dependencies
+" Plug 'valloric/youcompleteme'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'carlitux/deoplete-ternjs'
+Plug 'raimondi/delimitmate'
+Plug 'janko-m/vim-test'
 
 " Web Development
 Plug 'mattn/emmet-vim/'
+Plug 'pangloss/vim-javascript'
 
 " Need Load Last
 Plug 'https://github.com/ryanoasis/vim-devicons'
@@ -34,8 +42,8 @@ Plug 'https://github.com/ryanoasis/vim-devicons'
 
 " Initialize plugin system
 call plug#end()
-
-" PLUGIN SETTINGS
+" }}}
+" Plugin Settings {{{
 
 " Use the Ocean Dark theme!
 colorscheme oceandark
@@ -45,57 +53,55 @@ let g:lightline = {
       \ 'colorscheme': 'seoul256',
       \ }
 " Close NerdTree when opening file
-let NERDTreeQuitOnOpen = 1
+let NERDTreeQuitOnOpen=1
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+let g:tern_request_timeout = 1
+let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
 
-" Quit when NerdTree is last open buffer *Broken in neovim?*
-" autocmd bufenter * if (winnr(“$”) == 1 && exists(“b:NERDTreeType”) && b:NERDTreeType == “primary”) | q | endif
+"Add extra filetypes
+let g:tern#filetypes = [
+			\ 'jsx',
+			\ 'javascript.jsx',
+			\ 'js']
 
-" Use the OS clipboard by default (on versions compiled with `+clipboard`)
-" set clipboard=unnamed
+" }}}
+" Folding {{{
+set foldenable
+set foldlevelstart=5
+set foldnestmax=10
+set foldmethod=indent   " fold based on indent level
+" space open/closes folds
+nnoremap <space> za
+" }}}
+" Appearance {{{
 " Enhance command-line completion
 set wildmenu
 
-" Allow cursor keys in insert mode
-set esckeys
 
 " Optimize for fast terminal connections
 set ttyfast
 
-" Change mapleader
-" let mapleader=","
 
 " Don’t add empty newlines at the end of files
 set binary
 set noeol
 
-" Centralize backups, swapfiles and undo history
-"set backupdir=~/.vim/backups
-"set directory=~/.vim/swaps
-"if exists("&undodir")
-"	set undodir=~/.vim/undo
-"endif
-
-" Don’t create backups when editing files in certain directories
-set backupskip=/tmp/*,/private/tmp/*
-
-" Respect modeline in files
-" set modeline
-" set modelines=4
 
 " Enable line numbers
 set number
 " Highlight current line
 set cursorline
 " Make tabs as wide as two spaces
+set expandtab
 set tabstop=4
 set shiftwidth=4
 " Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set list
+set list listchars=tab:\ \ ,trail:·,eol:¬,nbsp:_
+" }}}
 
-" Highlight searches
-" set hlsearch
-
+" Usability {{{
+set modeline
 " Ignore case of searches
 set ignorecase
 " Highlight dynamically as pattern is typed
@@ -121,9 +127,10 @@ endif
 set scrolloff=6
 "Scrolls the window horizontally one increment at time instead of in large chanks
 set sidescroll=1
+" }}}
 
-
-" Custom Commands
+" Custom Commands {{{
+" turn off search highlight
 " Strip trailing whitespace (*ss)
 function! StripWhitespace()
 	let save_cursor = getpos(".")
@@ -161,5 +168,7 @@ augroup END
 " Automatically closes Scratch if we move the cursor ! Unknown Status !
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 
-"NerdTreeAutoOpen **BROKEN**
 autocmd VimEnter * if !argc() | Startify | NERDTreeToggle | endif
+
+" }}}
+" vim: foldmethod=marker:foldlevel=0
