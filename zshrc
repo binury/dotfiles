@@ -47,3 +47,7 @@ eval "$(fasd --init auto)"
 export PATH="${HOME}/.pyenv/bin:/usr/local/sbin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/teddy/.sdkman"
+[[ -s "/Users/teddy/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/teddy/.sdkman/bin/sdkman-init.sh"

@@ -1,6 +1,6 @@
 " Basics {{{
 if &compatible
-  set nocompatible               " Be iMproved
+  set nocompatible  "Vim not vi
 endif
 
 filetype plugin indent on
@@ -16,9 +16,9 @@ set encoding=utf8
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'mhinz/vim-startify'
-Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
-
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 Plug 'itchyny/lightline.vim'
 
 " Utilize External Formatting Guidelines
@@ -27,10 +27,12 @@ Plug 'skammer/vim-css-color'
 Plug 'scrooloose/syntastic'
 " YouCompleteME is a fucking monster of Plugins and has about a dozen other plugins as dependencies
 " Plug 'valloric/youcompleteme'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'carlitux/deoplete-ternjs'
-Plug 'raimondi/delimitmate'
+" Plug 'Shougo/deoplete.nvim',
+" Plug 'carlitux/deoplete-ternjs'
+" Plug 'raimondi/delimitmate'
 Plug 'janko-m/vim-test'
+Plug 'metakirby5/codi.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Web Development
 Plug 'mattn/emmet-vim/'
@@ -39,7 +41,9 @@ Plug 'pangloss/vim-javascript'
 " Need Load Last
 Plug 'https://github.com/ryanoasis/vim-devicons'
 
-
+" Zen
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 " Initialize plugin system
 call plug#end()
 " }}}
@@ -59,6 +63,10 @@ let g:deoplete#enable_at_startup = 1
 let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
 
+" Goyo + Limelight
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
 "Add extra filetypes
 let g:tern#filetypes = [
 			\ 'jsx',
@@ -77,17 +85,11 @@ nnoremap <space> za
 " Appearance {{{
 " Enhance command-line completion
 set wildmenu
-
-
 " Optimize for fast terminal connections
 set ttyfast
-
-
 " Don’t add empty newlines at the end of files
 set binary
 set noeol
-
-
 " Enable line numbers
 set number
 " Highlight current line
@@ -98,6 +100,10 @@ set tabstop=4
 set shiftwidth=4
 " Show “invisible” characters
 set list listchars=tab:\ \ ,trail:·,eol:¬,nbsp:_
+" Enable italic highlighting
+highlight Comment gui=italic
+highlight Comment cterm=italic
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " }}}
 
 " Usability {{{
