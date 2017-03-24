@@ -25,6 +25,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'skammer/vim-css-color'
 Plug 'scrooloose/syntastic'
+Plug 'udalov/kotlin-vim'
 " YouCompleteME is a fucking monster of Plugins and has about a dozen other plugins as dependencies
 " Plug 'valloric/youcompleteme'
 " Plug 'Shougo/deoplete.nvim',
