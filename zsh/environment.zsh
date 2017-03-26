@@ -7,4 +7,4 @@ export ZSH_CACHE="$XDG_CACHE_HOME/zsh"
 mkdir -p $ZSH_CACHE
 export SDKMAN_DIR="/Users/teddy/.sdkman"
 
-export PATH=/usr/local/bin:$PATH
+export PATH=$HOME/.jenv/bin:/usr/local/bin:$PATH

@@ -1,10 +1,5 @@
 export GREP_OPTIONS='--binary-files=without-match --ignore-case'
-# Different History files for root and standard user
-if (( ! EUID )); then
-    HISTFILE=$ZSH_CACHE/history_root
-else
-    HISTFILE=$ZSH_CACHE/history
-fi
+HISTFILE=$ZSH_CACHE/history
 SAVEHIST=10000
 HISTSIZE=12000
 setopt share_history append_history extended_history hist_no_store hist_ignore_all_dups hist_ignore_space
