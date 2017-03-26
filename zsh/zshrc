@@ -1,0 +1,33 @@
+source $HOME/.config/zsh/environment.zsh
+
+typeset -ga sources
+sources+="$ZSH_CONFIG/environment.zsh"
+sources+="$ZSH_CONFIG/options.zsh"
+sources+="$ZSH_CONFIG/prompt.zsh"
+sources+="$ZSH_CONFIG/functions.zsh"
+sources+="$ZSH_CONFIG/aliases.zsh"
+
+# Check for a system specific file
+systemFile=`uname -s | tr "[:upper:]" "[:lower:]"`
+sources+="$ZSH_CONFIG/$systemFile.zsh"
+
+#antigen
+source $HOME/dotfiles/antigen.zsh
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-history-substring-search
+
+antigen apply
+#end antigen
+
+#colors
+BASE16_SHELL="$HOME/dotfiles/base16-ocean.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+#end colors
+
+foreach file (`echo $sources`)
+	if [[ -a $file ]]; then
+		source $file
+	fi
+end
