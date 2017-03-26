@@ -7,6 +7,7 @@ alias fedit=" $EDITOR $ZSH_CONFIG/functions.zsh; source $ZSH_CONFIG/functions.zs
 alias pedit=" $EDITOR $ZSH_CONFIG/private.zsh; source $ZSH_CONFIG/private.zsh"
 alias viedit=" $EDITOR $HOME/.vim/vimrc"
 
+alias tree='tree -C'
 alias grep='grep --color=auto'
 
 ##### standard aliases (start with a space to be ignored in history)

@@ -11,16 +11,6 @@ sources+="$ZSH_CONFIG/aliases.zsh"
 systemFile=`uname -s | tr "[:upper:]" "[:lower:]"`
 sources+="$ZSH_CONFIG/$systemFile.zsh"
 
-#antigen
-source $HOME/dotfiles/antigen.zsh
-
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-history-substring-search
-
-antigen apply
-#end antigen
-
 #colors
 BASE16_SHELL="$HOME/dotfiles/base16-ocean.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
@@ -31,3 +21,9 @@ foreach file (`echo $sources`)
 		source $file
 	fi
 end
+
+#antibody
+source <(antibody init)
+antibody bundle < $HOME/dotfiles/zsh/antibody/plugins.txt
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
