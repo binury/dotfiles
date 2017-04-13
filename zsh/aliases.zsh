@@ -1,7 +1,8 @@
-export EDITOR="vim"
+export EDITOR="nvim"
 bindkey -v
 
 alias vi="vim"
+alias vim="nvim"
 alias aedit=" $EDITOR $ZSH_CONFIG/aliases.zsh; source $ZSH_CONFIG/aliases.zsh"
 alias fedit=" $EDITOR $ZSH_CONFIG/functions.zsh; source $ZSH_CONFIG/functions.zsh"
 alias pedit=" $EDITOR $ZSH_CONFIG/private.zsh; source $ZSH_CONFIG/private.zsh"
@@ -33,3 +34,5 @@ alias ....=' cd ..; cd ..; cd ..; ls'
 alias cd..='..'
 alias cd...='...'
 alias cd....='....'
+
+alias pinnacles="slackcat -c pinnacles"

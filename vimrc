@@ -20,6 +20,7 @@ Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'itchyny/lightline.vim'
+Plug 'chrisbra/sudoedit.vim'
 
 " Utilize External Formatting Guidelines
 Plug 'Chiel92/vim-autoformat'
@@ -38,6 +39,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Web Development
 Plug 'mattn/emmet-vim/'
 Plug 'pangloss/vim-javascript'
+Plug 'stephenway/postcss.vim'
+Plug 'tpope/vim-haml'
+Plug 'digitaltoad/vim-pug'
 
 " Need Load Last
 Plug 'https://github.com/ryanoasis/vim-devicons'
@@ -88,6 +92,7 @@ nnoremap <space> za
 set wildmenu
 " Optimize for fast terminal connections
 set ttyfast
+
 " Don’t add empty newlines at the end of files
 set binary
 set noeol
@@ -134,6 +139,7 @@ endif
 set scrolloff=6
 "Scrolls the window horizontally one increment at time instead of in large chanks
 set sidescroll=1
+
 " }}}
 
 " Custom Commands {{{
@@ -154,6 +160,10 @@ nnoremap <Leader>f :NERDTreeToggle<Enter>
 
 " Save a file as root (*W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
+
+" Toggle paste
+noremap <leader>p :set paste!<CR>
+
 filetype on
 
 " Automatic commands
