@@ -6,6 +6,7 @@ sources+="$ZSH_CONFIG/options.zsh"
 sources+="$ZSH_CONFIG/prompt.zsh"
 sources+="$ZSH_CONFIG/functions.zsh"
 sources+="$ZSH_CONFIG/aliases.zsh"
+sources+="$ZSH_CONFIG/completion.zsh"
 
 # Check for a system specific file
 systemFile=`uname -s | tr "[:upper:]" "[:lower:]"`
@@ -27,3 +28,5 @@ source <(antibody init)
 antibody bundle < $HOME/dotfiles/zsh/antibody/plugins.txt
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+eval "$(jenv init -)"
+eval "$(pyenv init -)"
