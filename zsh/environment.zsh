@@ -7,6 +7,5 @@ export ZSH_CACHE="$XDG_CACHE_HOME/zsh"
 mkdir -p $ZSH_CACHE
 export SDKMAN_DIR="/Users/teddy/.sdkman"
 export PYENV_ROOT="$HOME/.pyenv"
-export CELLAR="/usr/local/Cellar/node/7.8.0/bin"
-export PATH="$CELLAR:$HOME/.pyenv:$HOME/.rvm/bin:$HOME/.jenv/bin:/usr/local/bin:$PATH:`yarn global bin`"
+export PATH="/usr/local/sbin:$HOME/.opam/system/bin:$HOME/.pyenv:$HOME/.rvm/bin:$HOME/.jenv/bin:/usr/local/bin:$PATH:`yarn global bin`"
 

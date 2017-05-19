@@ -35,4 +35,4 @@ alias cd..='..'
 alias cd...='...'
 alias cd....='....'
 
-alias pinnacles="slackcat -c pinnacles"
+alias cat='ccat'
