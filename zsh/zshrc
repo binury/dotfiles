@@ -13,8 +13,8 @@ systemFile=`uname -s | tr "[:upper:]" "[:lower:]"`
 sources+="$ZSH_CONFIG/$systemFile.zsh"
 
 #colors
-BASE16_SHELL="$HOME/dotfiles/base16-ocean.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+#BASE16_SHELL="$HOME/dotfiles/base16-ocean.dark.sh"
+#[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 #end colors
 
 foreach file (`echo $sources`)
@@ -34,7 +34,3 @@ eval "$(thefuck --alias)"
 
 # OPAM configuration
 . /Users/teddy/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
-# tabtab source for yarn package
-# uninstall by removing these lines or running `tabtab uninstall yarn`
-[[ -f /Users/teddy/dotfiles/config/yarn/global/node_modules/tabtab/.completions/yarn.zsh ]] && . /Users/teddy/dotfiles/config/yarn/global/node_modules/tabtab/.completions/yarn.zsh

@@ -17,7 +17,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+"Plug 'plasticboy/vim-markdown' horrendously slow?
 Plug 'itchyny/lightline.vim'
 Plug 'chrisbra/sudoedit.vim'
 Plug 'jiangmiao/auto-pairs'
@@ -50,6 +50,7 @@ Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'rust-lang/rust.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
 
 " Zen
 Plug 'junegunn/goyo.vim'
@@ -60,7 +61,10 @@ call plug#end()
 " Plugin Settings {{{
 
 " Use the Ocean Dark theme!
-colorscheme oceandark
+"colorscheme oceandark
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set background=dark
+colorscheme base16-oceanicnext
 
 " LightLine Theme
 let g:lightline = {
@@ -115,7 +119,6 @@ set list listchars=tab:\ \ ,trail:·,eol:¬,nbsp:_
 " Enable italic highlighting
 highlight Comment gui=italic
 highlight Comment cterm=italic
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " }}}
 
 " Usability {{{
