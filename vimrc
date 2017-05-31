@@ -16,26 +16,32 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
-"Plug 'plasticboy/vim-markdown' horrendously slow?
+Plug 'plasticboy/vim-markdown'
 Plug 'itchyny/lightline.vim'
 Plug 'chrisbra/sudoedit.vim'
 Plug 'jiangmiao/auto-pairs'
 
 " Utilize External Formatting Guidelines
 Plug 'Chiel92/vim-autoformat'
-Plug 'skammer/vim-css-color'
 Plug 'scrooloose/syntastic'
 Plug 'udalov/kotlin-vim'
-" YouCompleteME is a fucking monster of Plugins and has about a dozen other plugins as dependencies
-Plug 'Shougo/deoplete.nvim',
-Plug 'carlitux/deoplete-ternjs'
-" Plug 'raimondi/delimitmate'
 Plug 'janko-m/vim-test'
 Plug 'metakirby5/codi.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 
+" completion and snippets
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'ervandew/supertab'
+
 " Web Development
+Plug 'ap/vim-css-color'
 Plug 'mattn/emmet-vim/'
 Plug 'stephenway/postcss.vim'
 Plug 'tpope/vim-haml'
@@ -74,6 +80,19 @@ let g:lightline = {
 let NERDTreeQuitOnOpen=1
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
+" deoplete sources
+set completeopt=longest,menuone,preview
+let g:deoplete#sources = {}
+let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
+let g:tern#command = ['tern']
+let g:tern#arguments = ['--persistent']
+
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete',
+  \ 'jspc#omni'
+\]
+" ternjs
 let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
 
@@ -152,7 +171,12 @@ set sidescroll=1
 " }}}
 
 " Custom Commands {{{
-" turn off search highlight
+" Remap tab for deoplete
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+let g:UltiSnipsExpandTrigger="<C-j>"
+" deo:tern go to definition
+autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 " Strip trailing whitespace (*ss)
 function! StripWhitespace()
 	let save_cursor = getpos(".")
@@ -195,9 +219,22 @@ augroup END
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 
 autocmd VimEnter * if !argc() | Startify | NERDTreeToggle | endif
-
+" omnicompletion for deo
+augroup omnifuncs
+  autocmd!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup end
+"tern
+if exists('g:plugs["tern_for_vim"]')
+  let g:tern_show_argument_hints = 'on_hold'
+  let g:tern_show_signature_in_pum = 1
+  autocmd FileType javascript setlocal omnifunc=tern#Complete
+endif
 " }}}
-" vim: foldmethod=marker:foldlevel=0
 " ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
 let s:opam_share_dir = system("opam config var share")
 let s:opam_share_dir = substitute(s:opam_share_dir, '[\r\n]*$', '', '')
@@ -230,3 +267,4 @@ for tool in s:opam_packages
   endif
 endfor
 " ## end of OPAM user-setup addition for vim / base ## keep this line
+" vim: foldmethod=marker:foldlevel=0
