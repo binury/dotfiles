@@ -25,11 +25,11 @@ Plug 'jiangmiao/auto-pairs'
 
 " Utilize External Formatting Guidelines
 Plug 'Chiel92/vim-autoformat'
-Plug 'scrooloose/syntastic'
 Plug 'udalov/kotlin-vim'
 Plug 'janko-m/vim-test'
 Plug 'metakirby5/codi.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'w0rp/ale'
 
 " completion and snippets
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -67,10 +67,9 @@ call plug#end()
 " Plugin Settings {{{
 
 " Use the Ocean Dark theme!
-"colorscheme oceandark
+colorscheme oceandark
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set background=dark
-colorscheme base16-oceanicnext
 
 " LightLine Theme
 let g:lightline = {
@@ -105,6 +104,13 @@ let g:tern#filetypes = [
 			\ 'jsx',
 			\ 'javascript.jsx',
 			\ 'js']
+" Ctrlp
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|node_modules)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " }}}
 " Folding {{{
@@ -131,8 +137,8 @@ set number
 set cursorline
 " Make tabs as wide as two spaces
 set expandtab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 " Show “invisible” characters
 set list listchars=tab:\ \ ,trail:·,eol:¬,nbsp:_
 " Enable italic highlighting
@@ -177,6 +183,7 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:UltiSnipsExpandTrigger="<C-j>"
 " deo:tern go to definition
 autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+
 " Strip trailing whitespace (*ss)
 function! StripWhitespace()
 	let save_cursor = getpos(".")
