@@ -1,8 +1,4 @@
 " Basics {{{
-if &compatible
-  set nocompatible  "Vim not vi
-endif
-
 filetype plugin indent on
 syntax enable
 
@@ -12,57 +8,65 @@ endif
 set encoding=utf8
 " }}}
 " Plugins {{{
-call plug#begin('~/.local/share/nvim/plugged')
+silent! packadd minpac
 
-Plug 'mhinz/vim-startify'
-Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tpope/vim-surround'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'itchyny/lightline.vim'
-Plug 'chrisbra/sudoedit.vim'
-Plug 'jiangmiao/auto-pairs'
+call minpac#init()
+call minpac#add('k-takata/minpac', {'type':'opt'})
+
+" Vim
+call minpac#add('mhinz/vim-startify')
+call minpac#add('scrooloose/nerdtree')
+call minpac#add('Xuyuanp/nerdtree-git-plugin')
+call minpac#add('tpope/vim-surround')
+call minpac#add('godlygeek/tabular')
+call minpac#add('plasticboy/vim-markdown')
+call minpac#add('itchyny/lightline.vim')
+call minpac#add('chrisbra/sudoedit.vim')
+call minpac#add('jiangmiao/auto-pairs')
+call minpac#add('junegunn/vim-easy-align')
+call minpac#add('machakann/vim-highlightedyank')
 
 " Utilize External Formatting Guidelines
-Plug 'Chiel92/vim-autoformat'
-Plug 'udalov/kotlin-vim'
-Plug 'janko-m/vim-test'
-Plug 'metakirby5/codi.vim'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'w0rp/ale'
+call minpac#add('Chiel92/vim-autoformat')
+call minpac#add('udalov/kotlin-vim')
+call minpac#add('janko-m/vim-test')
+call minpac#add('metakirby5/codi.vim')
+call minpac#add('ctrlpvim/ctrlp.vim')
+call minpac#add('w0rp/ale')
 
 " completion and snippets
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'ervandew/supertab'
+call minpac#add('Shougo/deoplete.nvim')
+call minpac#add('ternjs/tern_for_vim')
+call minpac#add('carlitux/deoplete-ternjs')
+call minpac#add('othree/jspc.vim')
+call minpac#add('SirVer/ultisnips')
+call minpac#add('honza/vim-snippets')
+call minpac#add('ervandew/supertab')
 
 " Web Development
-Plug 'ap/vim-css-color'
-Plug 'mattn/emmet-vim/'
-Plug 'stephenway/postcss.vim'
-Plug 'tpope/vim-haml'
-Plug 'digitaltoad/vim-pug'
-Plug 'reasonml/vim-reason-loader'
-Plug 'mxw/vim-jsx'
+call minpac#add('ap/vim-css-color')
+call minpac#add('mattn/emmet-vim')
+call minpac#add('stephenway/postcss.vim')
+call minpac#add('tpope/vim-haml')
+call minpac#add('reasonml/vim-reason-loader')
+call minpac#add('mxw/vim-jsx')
 
 " Need Load Last
-Plug 'https://github.com/ryanoasis/vim-devicons'
+call minpac#add('ryanoasis/vim-devicons')
 
 " Languages
-Plug 'rust-lang/rust.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'elixir-lang/vim-elixir'
-Plug 'slashmili/alchemist.vim'
+call minpac#add('rust-lang/rust.vim')
+call minpac#add('pangloss/vim-javascript')
+call minpac#add('elixir-lang/vim-elixir')
+call minpac#add('slashmili/alchemist.vim')
+call minpac#add('tpope/vim-rails')
+call minpac#add('vim-ruby/vim-ruby')
 
 " Zen
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
+call minpac#add('junegunn/goyo.vim')
+call minpac#add('junegunn/limelight.vim')
+packloadall
 " Initialize plugin system
-call plug#end()
 " }}}
 " Plugin Settings {{{
 
@@ -139,6 +143,8 @@ set cursorline
 set expandtab
 set tabstop=2
 set shiftwidth=2
+" Interactive serach
+set inccommand=split
 " Show “invisible” characters
 set list listchars=tab:\ \ ,trail:·,eol:¬,nbsp:_
 " Enable italic highlighting
@@ -169,6 +175,8 @@ if exists("&relativenumber")
 	au BufReadPost * set relativenumber
 endif
 
+" A line represents a line
+set nowrap
 " Start scrolling three lines before the horizontal window border
 set scrolloff=6
 "Scrolls the window horizontally one increment at time instead of in large chanks
