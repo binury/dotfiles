@@ -185,6 +185,8 @@ set sidescroll=1
 " }}}
 
 " Custom Commands {{{
+" Strip trailing whitespace
+:command Strail %s/\s\+$
 " Remap tab for deoplete
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
