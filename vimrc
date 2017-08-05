@@ -233,7 +233,7 @@ augroup END
 " Automatically closes Scratch if we move the cursor ! Unknown Status !
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 
-autocmd VimEnter * if !argc() | Startify | NERDTreeToggle | endif
+autocmd VimEnter * if !argc() | Startify | endif
 " omnicompletion for deo
 augroup omnifuncs
   autocmd!
