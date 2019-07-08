@@ -482,8 +482,8 @@
       "h": 4,
       "layers": {
         "0": {
-          "key": "LGUI",
-          "label": "LGUI"
+          "key": "LCTRL",
+          "label": "LCTRL"
         }
       }
     },
@@ -899,6 +899,10 @@
         "0": {
           "key": "SPACE",
           "label": "[ ]"
+        },
+        "1": {
+          "key": "#:flashMode()",
+          "label": "FLASH"
         }
       }
     },
@@ -910,12 +914,8 @@
       "h": 4,
       "layers": {
         "0": {
-          "key": "RALT",
-          "label": "RALT"
-        },
-        "1": {
-          "key": "LGUI",
-          "label": "LGUI"
+          "key": "RGUI",
+          "label": "RGUI"
         }
       }
     },
