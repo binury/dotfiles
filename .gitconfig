@@ -6,11 +6,11 @@
 	editor = nvim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 # Enforce SSH
-[url "ssh://git@github.com/"]
+[url "git@github.com:"]
   insteadOf = https://github.com/
-[url "ssh://git@gitlab.com/"]
+[url "git@gitlab.com/"]
   insteadOf = https://gitlab.com/
-[url "ssh://git@bitbucket.org/"]
+[url "git@bitbucket.org/"]
   insteadOf = https://bitbucket.org/
 [sendemail]
 	smtpencryption = tls
