@@ -6,6 +6,7 @@ export ZSH_CONFIG="$XDG_CONFIG_HOME/zsh"
 export ZSH_CACHE="$XDG_CACHE_HOME/zsh"
 mkdir -p $ZSH_CACHE
 
+export CARGOPATH="$HOME/.cargo/bin"
 export SDKMAN_DIR="$HOME/.sdkman"
 export PYENV_ROOT="$HOME/.pyenv"
 export GOROOT="/usr/local/opt/go/libexec"
@@ -19,4 +20,4 @@ export NVM_DIR="$HOME/.nvm"
 export NVM_PATH="/usr/local/opt/nvm/nvm.sh"
 export VSC_ROOT="/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin"
 
-export PATH="/usr/local/sbin:/usr/local/bin:$VSC_ROOT:$OPAMPATH:$OPAMPATH:$PEARPATH:$RUBYPATH:$YARNPATH:$COMPOSER_ROOT:$NVM_PATH:$PATH"
+export PATH="/usr/local/sbin:/usr/local/bin:$VSC_ROOT:$OPAMPATH:$OPAMPATH:$PEARPATH:$RUBYPATH:$YARNPATH:$COMPOSER_ROOT:$NVM_PATH:$CARGOPATH:$PATH"
