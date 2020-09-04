@@ -32,7 +32,7 @@
 [difftool]
 	prompt = false
 [github]
-	user = teddy-error
+	user = bin_ury
 	token = UR_TOKEN_HERE
 [gitflow "prefix"]
 	feature = feature-
@@ -206,3 +206,5 @@
 	template = /Users/teddy/.stCommitMsg
 [branch]
 	autosetuprebase = always
+[pull]
+	rebase = true
