@@ -6,6 +6,7 @@ export ZSH_CONFIG="$XDG_CONFIG_HOME/zsh"
 export ZSH_CACHE="$XDG_CACHE_HOME/zsh"
 mkdir -p $ZSH_CACHE
 
+GNU_ROOT="$(brew --prefix)/opt/gnu-sed/libexec/gnubin" # sed on MacOS is fickle
 export CARGOPATH="$HOME/.cargo/bin"
 export SDKMAN_DIR="$HOME/.sdkman"
 export PYENV_ROOT="$HOME/.pyenv"
@@ -20,4 +21,4 @@ export NVM_DIR="$HOME/.nvm"
 export NVM_PATH="/usr/local/opt/nvm/nvm.sh"
 export VSC_ROOT="/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin"
 
-export PATH="/usr/local/sbin:/usr/local/bin:$VSC_ROOT:$OPAMPATH:$OPAMPATH:$PEARPATH:$RUBYPATH:$YARNPATH:$COMPOSER_ROOT:$NVM_PATH:$CARGOPATH:$PATH"
+export PATH="$GNU_ROOT:/usr/local/sbin:/usr/local/bin:$VSC_ROOT:$OPAMPATH:$OPAMPATH:$PEARPATH:$RUBYPATH:$YARNPATH:$COMPOSER_ROOT:$NVM_PATH:$CARGOPATH:$PATH"
