@@ -16,7 +16,7 @@ brewbump() {
 }
 
 dev() {
-  npm run dev || npm run startdev
+  npm run dev --silent || npm run startdev --silent
 }
 
 # Print each PATH entry on a separate line
