@@ -57,3 +57,6 @@ log/
 *.log
 
 zsh/private.zsh
+
+# These timestamp files are useless
+config/configstore
