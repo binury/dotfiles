@@ -210,3 +210,5 @@
 	rebase = true
 [advice]
 	detachedHead = false
+[fetch]
+	prune = true
