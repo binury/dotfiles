@@ -208,6 +208,14 @@ noremap <leader>W :w !sudo tee % > /dev/null<CR>
 " Toggle paste
 noremap <leader>p :set paste!<CR>
 
+" Move lines
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+
 filetype on
 
 " Automatic commands
