@@ -208,3 +208,5 @@
 	autosetuprebase = always
 [pull]
 	rebase = true
+[advice]
+	detachedHead = false
