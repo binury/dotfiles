@@ -212,3 +212,6 @@
 	detachedHead = false
 [fetch]
 	prune = true
+[rebase]
+	autostash = true
+	autosquash = true
