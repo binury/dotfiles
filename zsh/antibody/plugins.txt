@@ -2,6 +2,7 @@ mafredri/zsh-async
 zsh-users/zsh-completions
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
+binury/ls_colors
 binury/smart-cd
 gradle/gradle-completion
 dfurnes/purer

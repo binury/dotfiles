@@ -23,20 +23,3 @@ export VSC_ROOT="/Applications/Visual Studio Code - Insiders.app/Contents/Resour
 export GEM_HOME=$HOME/.gem
 
 export PATH="$HOME/.local/bin:$GNU_ROOT:/usr/local/sbin:/usr/local/bin:$VSC_ROOT:$GEM_HOME/bin:$OPAMPATH:$OPAMPATH:$PEARPATH:$YARNPATH:$COMPOSER_ROOT:$NVM_PATH:$CARGOPATH:$PATH"
-
-# https://jonasjacek.github.io/colors
-FC='38;5' # Full Color ANSI 256 Prefix
-declare -A colors
-colors=(
-  [ejs]=149
-  [js]=184
-  [jsx]=116
-  [json]=251
-  [ts]=32
-  [css]=33
-  [less]=25
-  [sass]=133
-  [html]=166
-)
-for ext clr in ${(kv)colors}; do LS_COLORS+="*.$ext=$FC;${colors[$ext]}:"; done
-export LS_COLORS
