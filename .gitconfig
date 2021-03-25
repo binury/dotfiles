@@ -4,6 +4,7 @@
 [core]
 	excludesfile = /Users/teddy/.gitignore_global
 	editor = nvim
+  pager = delta
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 # Enforce SSH
 [url "git@github.com:"]
