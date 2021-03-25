@@ -45,4 +45,4 @@ alias cd..='..'
 alias cd...='...'
 alias cd....='....'
 
-alias cat='ccat'
+alias cat='bat'
