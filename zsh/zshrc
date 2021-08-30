@@ -30,7 +30,7 @@ antibody bundle < $HOME/dotfiles/zsh/antibody/plugins.txt
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 #eval "$(jenv init -)"
-eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
 eval "$(rbenv init -)"
 #eval "$(thefuck --alias)"
 
