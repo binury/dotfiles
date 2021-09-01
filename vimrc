@@ -79,16 +79,15 @@ let NERDTreeQuitOnOpen=1
 let g:deoplete#enable_at_startup = 1
 " deoplete sources
 set completeopt=longest,menuone,preview
-let g:deoplete#sources = {}
-let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
+call deoplete#custom#option('sources', {
+  \ 'javascript.jsx': ['file', 'ultisnips', 'ternjs'],
+\ })
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
 
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.javascript = [
-  \ 'tern#Complete',
-  \ 'jspc#omni'
-\]
+call deoplete#custom#var('omni', {
+  \ 'functions.javascript': [ 'tern#Complete', 'jspc#omni' ]
+\ })
 " ternjs
 let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
@@ -237,7 +236,6 @@ augroup END
 " Automatically closes Scratch if we move the cursor ! Unknown Status !
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 
-autocmd VimEnter * if !argc() | Startify | endif
 " omnicompletion for deo
 augroup omnifuncs
   autocmd!
