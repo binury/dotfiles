@@ -1,6 +1,7 @@
 [user]
 	name = Robin Ury
-	email = nesingwarysfinest@gmail.com
+	email = 1146921+binury@users.noreply.github.com
+  signingkey = 679DFF38ED10FAFD
 [core]
 	excludesfile = /Users/teddy/.gitignore_global
 	editor = nvim
@@ -33,7 +34,7 @@
 [difftool]
 	prompt = false
 [github]
-	user = bin_ury
+	user = binury
 	token = UR_TOKEN_HERE
 [gitflow "prefix"]
 	feature = feature-
@@ -204,7 +205,8 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [commit]
-	template = /Users/teddy/.stCommitMsg
+  gpgsign = true
+  # template = /Users/teddy/.stCommitMsg
 [branch]
 	autosetuprebase = always
 [pull]
