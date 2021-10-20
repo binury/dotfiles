@@ -170,8 +170,8 @@
 	wr = show -p --no-color
 	#############
 [commit]
-  gpgsign = true
-  # template = /Users/teddy/.stCommitMsg
+	gpgsign = true
+  # template = /Users/teddy/.git-commit-template.txt
 [branch]
 	autosetuprebase = always
 [pull]
