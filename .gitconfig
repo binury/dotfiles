@@ -25,6 +25,7 @@
 	default = current
 [diff]
 	tool = vimdiff
+	algorithm = histogram
 [difftool]
 	prompt = false
 [github]
