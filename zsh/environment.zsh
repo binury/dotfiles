@@ -21,5 +21,8 @@ export NVM_DIR="$HOME/.nvm"
 export NVM_PATH="/usr/local/opt/nvm/nvm.sh"
 export VSC_ROOT="/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin"
 export GEM_HOME=$HOME/.gem
+CURL_PATH="/usr/local/opt/curl/bin"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/Contents/Home
 
-export PATH="$HOME/.local/bin:$GNU_ROOT:/usr/local/sbin:/usr/local/bin:$VSC_ROOT:$GEM_HOME/bin:$OPAMPATH:$OPAMPATH:$PEARPATH:$YARNPATH:$COMPOSER_ROOT:$NVM_PATH:$CARGOPATH:$PYENV_ROOT/bin:$PATH"
+export PATH="$HOME/.local/bin:$GNU_ROOT:$CURL_APTH:/usr/local/sbin:/usr/local/bin:$VSC_ROOT:$GEM_HOME/bin:$OPAMPATH:$OPAMPATH:$PEARPATH:$YARNPATH:$COMPOSER_ROOT:$NVM_PATH:$CARGOPATH:$PYENV_ROOT/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"
