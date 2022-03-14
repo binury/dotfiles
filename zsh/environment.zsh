@@ -6,6 +6,13 @@ export ZSH_CONFIG="$XDG_CONFIG_HOME/zsh"
 export ZSH_CACHE="$XDG_CACHE_HOME/zsh"
 mkdir -p $ZSH_CACHE
 
+# MacOS clang weirdness
+# https://github.com/pyenv/pyenv/issues/1740
+export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib -L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include -I/usr/local/opt/openssl@1.1/include"
+
+export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
 GNU_ROOT="$(brew --prefix)/opt/gnu-sed/libexec/gnubin" # sed on MacOS is fickle
 export CARGOPATH="$HOME/.cargo/bin"
 export SDKMAN_DIR="$HOME/.sdkman"
