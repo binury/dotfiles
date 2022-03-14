@@ -46,3 +46,5 @@ alias cd...='...'
 alias cd....='....'
 
 alias cat='bat'
+
+alias nr='npm run'

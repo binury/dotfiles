@@ -1,7 +1,9 @@
 export GREP_OPTIONS='--binary-files=without-match --ignore-case'
 HISTFILE=$ZSH_CACHE/history
-SAVEHIST=10000
-HISTSIZE=12000
+# https://zsh.sourceforge.io/Doc/Release/Parameters.html#index-SAVEHIST
+SAVEHIST=25000
+# https://zsh.sourceforge.io/Doc/Release/Parameters.html#index-HISTSIZE
+HISTSIZE=100000
 setopt share_history append_history extended_history hist_no_store hist_ignore_all_dups hist_ignore_space
 
 # If a command is issued that can’t be executed as a normal command, and the command is the name of a directory, perform the cd command to that directory.
