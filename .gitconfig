@@ -1,12 +1,13 @@
 [user]
 	name = Robin Ury
 	email = 1146921+binury@users.noreply.github.com
-  signingkey = 679DFF38ED10FAFD
+	signingkey = E350E5E778752581
 [core]
 	excludesfile = /Users/teddy/.gitignore_global
 	editor = nvim
   pager = delta
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	precomposeUnicode = true
 # Enforce SSH
 [url "git@github.com:"]
   insteadOf = https://github.com/
