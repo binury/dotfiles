@@ -30,8 +30,8 @@ setopt AUTO_PUSHD
 # Don’t push multiple copies of the same directory onto the directory stack.
 setopt PUSHD_IGNORE_DUPS
 
-# DON NOT Allow ‘>’ redirection to truncate existing files, and ‘>>’ to create files. Otherwise ‘>!’ or ‘>|’ must be used to truncate  a file, and ‘>>!’ or ‘>>|’ to create a file.
-setopt no_clobber
+# Allow redirection to truncate existing files, and ‘>>’ to create files.
+setopt clobber
 
 # Enable history substring searching
 zle -N history-substring-search-up;
