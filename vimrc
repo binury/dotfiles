@@ -283,5 +283,11 @@ for tool in s:opam_packages
     call s:opam_configuration[tool]()
   endif
 endfor
+
+" Remember cursor position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
 " ## end of OPAM user-setup addition for vim / base ## keep this line
 " vim: foldmethod=marker:foldlevel=0
