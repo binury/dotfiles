@@ -1,8 +1,13 @@
 mafredri/zsh-async
+zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
-zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
 binury/ls_colors
 binury/smart-cd
 gradle/gradle-completion
 dfurnes/purer
+jeffreytse/zsh-vi-mode
+tom-doerr/zsh_codex
+agkozak/zsh-z
+
+zsh-users/zsh-syntax-highlighting
