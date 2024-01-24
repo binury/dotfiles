@@ -11,16 +11,6 @@ alias viedit=" $EDITOR $HOME/.vim/vimrc"
 alias tree='tree -C'
 alias grep='grep --color=auto'
 
-##### standard aliases (start with a space to be ignored in history)
-## default ls is untouched, except coloring
-# alias ls=' ls --color=auto'
-# alias myls=' ls -C -F -h --color=always'
-# alias l=" myls -l"
-# alias ll=' myls -l'
-# alias la=' myls -lA'
-# alias v=" clear; ll -gh"    # standard directory view
-# alias vs=" v **/*(.)"         # show all files in all subdirs plain in a list
-
 alias ls='exa -G'
 alias l='exa -lbF --git' # list, size, type, git
 alias ll='exa -lbGF --git' # long list
@@ -35,15 +25,6 @@ alias p=' ps aux | grep'
 alias g='git'
 alias b='brew'
 alias d=' dirs -v'
-alias ka="killall"
-
-alias cd=' cd'
-alias ..=' cd ..; ls'
-alias ...=' cd ..; cd ..; ls'
-alias ....=' cd ..; cd ..; cd ..; ls'
-alias cd..='..'
-alias cd...='...'
-alias cd....='....'
 
 alias cat='bat'
 
