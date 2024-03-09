@@ -10,10 +10,10 @@ setopt share_history append_history extended_history hist_no_store hist_ignore_a
 setopt AUTO_CD
 
 # Treat  the ‘#’, ‘~’ and ‘^’ characters as part of patterns for filename generation, etc.  (An initial unquoted ‘~’ always produces named directory expansion.)
-setopt EXTENDED_GLOB
+# setopt EXTENDED_GLOB
 
 # If a pattern for filename generation has no matches, print an error, instead of leaving it unchanged in the argument  list. This also applies to file expansion of an initial ‘~’ or ‘=’.
-setopt NOMATCH
+# setopt NOMATCH
 
 # no Beep on error in ZLE.
 setopt NO_BEEP
