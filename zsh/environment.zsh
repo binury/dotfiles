@@ -5,6 +5,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export ZSH_CONFIG="$XDG_CONFIG_HOME/zsh"
 export ZSH_CACHE="$XDG_CACHE_HOME/zsh"
 mkdir -p $ZSH_CACHE
+export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgreprc"
 
 # MacOS clang weirdness
 # https://github.com/pyenv/pyenv/issues/1740

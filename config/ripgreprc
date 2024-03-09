@@ -1,0 +1,13 @@
+--max-columns=150
+--max-columns-preview
+
+# Search hidden files / directories (e.g. dotfiles) by default
+--hidden
+
+--colors=path:style:underline
+--colors=match:fg:0x19,0x98,0xf7
+--colors=match:style:bold
+
+--smart-case
+
+--type-add=dts:*.d.ts
