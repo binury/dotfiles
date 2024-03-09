@@ -27,5 +27,7 @@ alias b='brew'
 alias d=' dirs -v'
 
 alias cat='bat'
+alias pb='pbcopy'
 
 alias nr='npm run'
+
