@@ -60,3 +60,4 @@ zsh/private.zsh
 
 # These timestamp files are useless
 config/configstore
+zsh/antibody/plugins.zsh
