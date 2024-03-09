@@ -36,3 +36,5 @@ setopt clobber
 # Enable history substring searching
 zle -N history-substring-search-up;
 zle -N history-substring-search-down;
+
+ZVM_VI_SURROUND_BINDKEY="classic"
