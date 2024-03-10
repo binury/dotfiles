@@ -37,3 +37,13 @@ eval "$(rbenv init -)"
 # OPAM configuration
 . /Users/teddy/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
+
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
+
+if [[ -e pnpm ]]; then
+  export PNPM_HOME=$(pnpm bin -g)
+  case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+  esac
+fi
