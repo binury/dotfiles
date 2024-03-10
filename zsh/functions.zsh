@@ -1,18 +1,23 @@
-#strg+x,s adds sudo to the line
-# Zsh Buch p.159 - http://zshbuch.org/
-run-with-sudo() { LBUFFER="sudo $LBUFFER" }
-zle -N run-with-sudo
-bindkey '^Xs' run-with-sudo
+# TODO: No longer working, probably due to vi
+# run-with-sudo() {
+#   LBUFFER="sudo $LBUFFER"
+# }
+# zle -N run-with-sudo
+# bindkey '^Xs' run-with-sudo
 
 brewbump() {
-  echo -e "\nUpdating Homebrew...\n"
+  echo
+  echo "Updating Homebrew…"
   brew update
-  echo -e "\nUpgrading Homebrew...\n"
-  brew upgrade 
-  echo -e "\nCleaning your mess...\n"
+  echo
+  echo "Upgrading Homebrew…"
+  brew upgrade
+  echo
+  echo "Cleaning your mess…"
   brew cleanup
   brew prune
-  echo -e "\nDone.\n"
+  echo
+  echo "Done 🎉"
 }
 
 dev() {
@@ -24,7 +29,7 @@ alias path='echo -e ${PATH//:/\\n}'
 
 # Create a new directory and enter it
 function mkd() {
-	mkdir -p "$@" && cd "$_";
+  mkdir -p "$@" && cd "$_"
 }
 
 # Bindings for historical substring search (via plugin)

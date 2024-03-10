@@ -10,7 +10,7 @@ sources+="$ZSH_CONFIG/aliases.zsh"
 sources+="$ZSH_CONFIG/completion.zsh"
 
 # Check for a system specific file
-systemFile=`uname -s | tr "[:upper:]" "[:lower:]"`
+systemFile=$(uname -s | tr "[:upper:]" "[:lower:]")
 sources+="$ZSH_CONFIG/$systemFile.zsh"
 
 #colors
@@ -18,11 +18,11 @@ sources+="$ZSH_CONFIG/$systemFile.zsh"
 #[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 #end colors
 
-foreach file (`echo $sources`)
-	if [[ -a $file ]]; then
-		source $file
-	fi
-end
+for file in $sources; do
+  if [[ -e $file ]]; then
+    source $file
+  fi
+done
 
 #antibody
 source <(antibody init)
