@@ -24,19 +24,24 @@ for file in $sources; do
   fi
 done
 
-#antibody
-source <(antibody init)
-antibody bundle < $HOME/dotfiles/zsh/antibody/plugins.txt
+#zsh plugins
+source /usr/local/opt/antidote/share/antidote/antidote.zsh
+antidote load $HOME/dotfiles/zsh/antibody/plugins.txt
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-#eval "$(jenv init -)"
+
 eval "$(pyenv init --path)"
 eval "$(rbenv init -)"
-#eval "$(thefuck --alias)"
+
+# z
+eval "$(zoxide init zsh)"
+
+# codex completion
+bindkey '^X' create_completion
 
 # OPAM configuration
-. /Users/teddy/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
+. /Users/teddy/.opam/opam-init/init.zsh >/dev/null 2>/dev/null || true
 
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
@@ -47,3 +52,8 @@ if [[ -e pnpm ]]; then
   *) export PATH="$PNPM_HOME:$PATH" ;;
   esac
 fi
+
+
+# bun completions
+[ -s "/Users/teddy/.bun/_bun" ] && source "/Users/teddy/.bun/_bun"
+

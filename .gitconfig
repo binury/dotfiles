@@ -1,5 +1,5 @@
 [user]
-	name = Robin Ury
+	name = Bin Ury
 	email = 1146921+binury@users.noreply.github.com
 	signingkey = E350E5E778752581
 [core]
@@ -210,3 +210,5 @@
 	required = true
 [merge]
 	conflictStyle = diff3
+[init]
+	defaultBranch = main

@@ -20,6 +20,9 @@ Plug 'chrisbra/sudoedit.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
 Plug 'machakann/vim-highlightedyank'
+Plug 'unblevable/quick-scope'
+Plug 'justinmk/vim-sneak'
+Plug 'chaoren/vim-wordmotion'
 
   " Utilize External Formatting Guidelines
 Plug 'Chiel92/vim-autoformat'
@@ -30,13 +33,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'w0rp/ale'
 
   " completion and snippets
-Plug 'Shougo/deoplete.nvim'
-Plug 'ternjs/tern_for_vim'
-Plug 'carlitux/deoplete-ternjs'
-Plug 'othree/jspc.vim'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'ervandew/supertab'
+Plug 'vim-denops/denops.vim'
+Plug 'Shougo/ddc.vim'
 
   " Web Development
 Plug 'ap/vim-css-color'
@@ -75,32 +73,11 @@ let g:lightline = {
       \ }
 " Close NerdTree when opening file
 let NERDTreeQuitOnOpen=1
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
-" deoplete sources
-set completeopt=longest,menuone,preview
-call deoplete#custom#option('sources', {
-  \ 'javascript.jsx': ['file', 'ultisnips', 'ternjs'],
-\ })
-let g:tern#command = ['tern']
-let g:tern#arguments = ['--persistent']
-
-call deoplete#custom#var('omni', {
-  \ 'functions.javascript': [ 'tern#Complete', 'jspc#omni' ]
-\ })
-" ternjs
-let g:tern_request_timeout = 1
-let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
 
 " Goyo + Limelight
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
-"Add extra filetypes
-let g:tern#filetypes = [
-			\ 'jsx',
-			\ 'javascript.jsx',
-			\ 'js']
 " Ctrlp
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
@@ -109,6 +86,11 @@ let g:ctrlp_custom_ignore = {
   \ }
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+" Sneak
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
 " }}}
 " Folding {{{
 set foldenable
@@ -180,12 +162,6 @@ set sidescroll=1
 " Custom Commands {{{
 " Strip trailing whitespace
 :command Strail %s/\s\+$
-" Remap tab for deoplete
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-let g:UltiSnipsExpandTrigger="<C-j>"
-" deo:tern go to definition
-autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 
 " Strip trailing whitespace (*ss)
 function! StripWhitespace()
@@ -236,21 +212,6 @@ augroup END
 " Automatically closes Scratch if we move the cursor ! Unknown Status !
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 
-" omnicompletion for deo
-augroup omnifuncs
-  autocmd!
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-augroup end
-"tern
-if exists('g:plugs["tern_for_vim"]')
-  let g:tern_show_argument_hints = 'on_hold'
-  let g:tern_show_signature_in_pum = 1
-  autocmd FileType javascript setlocal omnifunc=tern#Complete
-endif
 " }}}
 " ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line
 let s:opam_share_dir = system("opam config var share")

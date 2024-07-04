@@ -33,8 +33,7 @@ setopt PUSHD_IGNORE_DUPS
 # Allow redirection to truncate existing files, and ‘>>’ to create files.
 setopt clobber
 
-# Enable history substring searching
-zle -N history-substring-search-up;
-zle -N history-substring-search-down;
-
 ZVM_VI_SURROUND_BINDKEY="classic"
+
+# Disable homebrew auto cleanup
+export HOMEBREW_NO_INSTALL_CLEANUP="PLZ NO"

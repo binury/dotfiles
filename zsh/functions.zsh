@@ -21,7 +21,8 @@ brewbump() {
 }
 
 dev() {
-  npm run dev --silent || npm run startdev --silent
+  # bun run dev --silent || bun run startdev --silent || bun run start --silent
+  bun run dev || bun run startdev || bun run start
 }
 
 # Print each PATH entry on a separate line
@@ -35,3 +36,6 @@ function mkd() {
 # Bindings for historical substring search (via plugin)
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
+
+# Development/testing
+# source "$HOME/Code/npm-script-shell-plugin/pjshell.zsh"
